@@ -6,8 +6,7 @@ export default function ToDoForm() {
     title: '',
     description: '',
     status: false,
-    date: '',
-    time: ''
+    date: ''
   })
 
   function onChangeHandler(event) {
@@ -37,8 +36,7 @@ export default function ToDoForm() {
         title: '',
         description: '',
         status: false,
-        date: '',
-        time: ''
+        date: ''
     }
     setToDo(newToDo)
   }
@@ -52,9 +50,6 @@ export default function ToDoForm() {
         </Form.Group>
         <Form.Group>
           <Form.Control onChange={ (event) => onChangeHandler(event) } value={ toDo.date } name="date" type="date" />
-        </Form.Group>
-        <Form.Group>
-          <Form.Control onChange={ (event) => onChangeHandler(event) } value={ toDo.time } name="time" type="time" />
         </Form.Group>
         <Form.Group>
           <Form.Control onChange={ (event) => onChangeHandler(event) } value={ toDo.description } name="description" as="textarea" rows={5} placeholder="Write description about this task" />

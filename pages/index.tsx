@@ -5,8 +5,8 @@ import ToDoForm from '../components/ToDoForm'
 
 export default function Home() {
   return (
-    <div>
-      <Row>
+    <>
+      <Row className={styles.container}>
         <Col xs={4}>
           <ToDoForm />
         </Col>
@@ -14,6 +14,6 @@ export default function Home() {
           <h1>INI LIST</h1>
         </Col>
       </Row>
-    </div>
+    </>
   )
 }
