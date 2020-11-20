@@ -5,7 +5,7 @@ const redis = new Redis()
 
 export const resolvers = {
     Query: {
-        getToDos: async () => {
+        toDos: async () => {
             try {
                 const toDosCache = await redis.get('toDos')
                 if (toDosCache !== null) {
@@ -23,7 +23,7 @@ export const resolvers = {
             }
         },
 
-        getToDoById: async (_, args) => {
+        toDoById: async (_, args) => {
             try {
                 const toDosCache = await redis.get('toDos')
                 if (toDosCache !== null) {

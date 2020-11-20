@@ -8,12 +8,14 @@
     "start": "next start"
   },
   "dependencies": {
+    "@apollo/client": "^3.2.7",
     "apollo-server-micro": "^2.19.0",
     "axios": "^0.21.0",
     "bootstrap": "^4.5.3",
     "graphql": "^15.4.0",
     "ioredis": "^4.19.2",
     "next": "10.0.1",
+    "next-apollo": "^5.0.4",
     "react": "17.0.1",
     "react-bootstrap": "^1.4.0",
     "react-dom": "17.0.1"

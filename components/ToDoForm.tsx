@@ -1,7 +1,19 @@
 import React, { useState } from 'react'
 import { Form, Button, Col } from 'react-bootstrap'
+import { useMutation, gql } from '@apollo/client'
 
-export default function ToDoForm() {
+const ADD_TODO = gql`
+    mutation AddToDo($title: String, $description: String, $status: Boolean, $date: String) {
+        createToDo(title: $title, description: $description, status: $status, date: $date) {
+            title
+        }
+    }
+`
+
+export default function ToDoForm(props) {
+  const [addToDo, { data: toDoData }] = useMutation(ADD_TODO)
+  const { refetch } = props
+  
   const [toDo, setToDo] = useState({
     title: '',
     description: '',
@@ -26,9 +38,11 @@ export default function ToDoForm() {
     }
   }
 
-  function onSubmitHandler(event) {
+  async function onSubmitHandler(event) {
     event.preventDefault()
-    console.log('submit')
+    const result = await addToDo({ variables: toDo })
+    refetch()
+    console.log(result)
   }
 
   function clearForm() {

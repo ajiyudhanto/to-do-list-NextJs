@@ -14,8 +14,8 @@ export const typeDefs = gql`
     }
 
     type Query {
-        getToDos: [ToDo]
-        getToDoById(id: String): ToDo
+        toDos: [ToDo]
+        toDoById(id: String): ToDo
     }
 
     type Mutation {
