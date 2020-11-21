@@ -46,26 +46,16 @@ export default function ToDo(props) {
                 className="vertical-timeline-element--work"
                 contentStyle={{ background: '#404040', color: '#FEC87C' }}
                 contentArrowStyle={{ borderRight: '7px solid  #404040' }}
-                date={ date }
+                // date={ date }
                 iconStyle={ props.toDo.status === true? { background: '#F3B97C', color: '#414141', cursor: 'pointer' } : { background: '#414141', color: '#F3B97C', cursor: 'pointer' } }
                 iconOnClick={ () => updateHandler() }
                 icon={ props.toDo.status === true? <MdCheck /> : <MdMoreHoriz /> }
             >
                 <MdClose onClick={ () => deleteHandler() } style={{ position: 'absolute', left: '95%', fontSize: '20px', cursor: 'pointer' }} />
-                <h3 className="vertical-timeline-element-title">{ props.toDo.title }</h3>
+                <h3 style={{ fontWeight: 'bolder' }}>{ props.toDo.title }</h3>
+                <p style={{ fontStyle: 'italic' }}>{ date }</p>
                 <p>{ props.toDo.description }</p>
             </VerticalTimelineElement>
-            {/* <Row>
-                <Col>
-                    <Card>
-                        <Card.Body>
-                            <Card.Title>{ props.toDo.title }</Card.Title>
-                            <Card.Subtitle className="mb-2 text-muted">{ date }</Card.Subtitle>
-                            <Card.Text>{ props.toDo.description }</Card.Text>
-                        </Card.Body>
-                    </Card>
-                </Col>
-            </Row> */}
         </>
     )
 }

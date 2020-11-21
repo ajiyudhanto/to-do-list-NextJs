@@ -63,7 +63,7 @@ export default function ToDoForm(props) {
       <Row>
         <Col>       
           <Form onSubmit={ (event) => onSubmitHandler(event) }>
-            <h1>Add Task</h1>
+            <h1 style={{ fontWeight: 'bolder', color: '#F3B97C', textAlign: 'center' }}>ADD TASK</h1>
             <Form.Group>
               <Form.Control onChange={ (event) => onChangeHandler(event) } value={ toDo.title } name="title" type="text" placeholder="Name your task" />
             </Form.Group>
