@@ -5,6 +5,8 @@ import ToDoForm from '../components/ToDoForm'
 import withApollo from '../lib/apollo'
 import { useQuery, gql } from '@apollo/client'
 import ToDo from '../components/ToDo'
+import { VerticalTimeline } from 'react-vertical-timeline-component'
+import 'react-vertical-timeline-component/style.min.css'
 
 const GET_TODOS = gql`
     query getToDos {
@@ -35,11 +37,13 @@ const Home = () => {
           <ToDoForm refetch={ refetch } />
         </Col>
         <Col>
-          {
-            data.toDos.map(toDo => {
-                return <ToDo toDo={ toDo } key={ toDo.id } />
-            })
-          }
+          <VerticalTimeline layout={ '1-column-left' }>
+            {
+              data.toDos.map(toDo => {
+                  return <ToDo toDo={ toDo } key={ toDo.id } />
+              })
+            }
+          </VerticalTimeline>
         </Col>
       </Row>
     </>
