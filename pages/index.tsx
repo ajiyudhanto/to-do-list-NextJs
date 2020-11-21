@@ -33,14 +33,14 @@ const Home = () => {
   return (
     <>
       <Row className={styles.container}>
-        <Col xs={4}>
+        <Col xs={4} style={{ position: 'sticky' }}>
           <ToDoForm refetch={ refetch } />
         </Col>
         <Col>
           <VerticalTimeline layout={ '1-column-left' }>
             {
               data.toDos.map(toDo => {
-                  return <ToDo toDo={ toDo } key={ toDo.id } />
+                  return <ToDo toDo={ toDo } key={ toDo.id } refetch={ refetch } />
               })
             }
           </VerticalTimeline>

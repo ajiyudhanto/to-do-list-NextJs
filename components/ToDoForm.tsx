@@ -11,7 +11,7 @@ const ADD_TODO = gql`
 `
 
 export default function ToDoForm(props) {
-  const [addToDo, { data: toDoData }] = useMutation(ADD_TODO)
+  const [addToDo] = useMutation(ADD_TODO)
   const { refetch } = props
   
   const [toDo, setToDo] = useState({
