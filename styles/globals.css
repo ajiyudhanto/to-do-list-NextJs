@@ -4,11 +4,11 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  background-color: #1D1F21;
+  background-color: #0E0E0E;
 }
 
 #__next {
-  background-color: #1D1F21;
+  background-color: #0E0E0E;
 }
 
 a {
@@ -18,4 +18,22 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.vertical-timeline::before {
+  background-color: #FEC87C !important;
+}
+
+.vertical-timeline-element-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px #FEC87C, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05) !important;
+}
+
+.vertical-timeline-element-content {
+  box-shadow: 0 3px 0 #FEC87C !important;
 }

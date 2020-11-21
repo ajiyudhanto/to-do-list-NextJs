@@ -33,7 +33,7 @@ const Home = () => {
   return (
     <>
       <Row className={styles.container}>
-        <Col xs={4} style={{ position: 'sticky' }}>
+        <Col xs={4}>
           <ToDoForm refetch={ refetch } />
         </Col>
         <Col>
