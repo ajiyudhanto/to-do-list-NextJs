@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import styles from '../styles/Home.module.css'
 import { Row, Col } from 'react-bootstrap'
 import ToDoForm from '../components/ToDoForm'
@@ -22,10 +22,29 @@ const GET_TODOS = gql`
 
 const Home = () => {
   const { loading, error, data, refetch } = useQuery(GET_TODOS)
+  const [date, setDate] = useState({
+    day: new Date().getDay(),
+    date: new Date().getDate(),
+    month: new Date().getMonth(),
+    year: new Date().getFullYear(),
+    time: new Date().toLocaleTimeString()
+  })
+  const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "November", "December"]
+  const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
   useEffect(() => {
-    refetch()
+    setInterval(getTimeNow, 1000)
   }, [])
+
+  function getTimeNow() {
+    setDate({
+      day: new Date().getDay(),
+      date: new Date().getDate(),
+      month: new Date().getMonth(),
+      year: new Date().getFullYear(),
+      time: new Date().toLocaleTimeString()
+    })
+  }
 
   if (loading) return <p>loading...</p>
   if (error) return <p>{ JSON.stringify(error) }</p>

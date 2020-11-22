@@ -53,3 +53,9 @@ a {
   color: #181818 !important;
   border-color: #3C8258 !important;
 }
+
+.white-text {
+  font-weight: bolder;
+  color: #eaeaea;
+  text-align: center;
+}

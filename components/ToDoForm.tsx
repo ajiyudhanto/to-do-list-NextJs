@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Form, Button, Row, Col } from 'react-bootstrap'
 import { useMutation, gql } from '@apollo/client'
 
@@ -20,6 +20,30 @@ export default function ToDoForm(props) {
     status: false,
     date: ''
   })
+
+  const [date, setDate] = useState({
+    day: new Date().getDay(),
+    date: new Date().getDate(),
+    month: new Date().getMonth(),
+    year: new Date().getFullYear(),
+    time: new Date().toLocaleTimeString()
+  })
+  const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "November", "December"]
+  const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+
+  useEffect(() => {
+    setInterval(getTimeNow, 1000)
+  }, [])
+
+  function getTimeNow() {
+    setDate({
+      day: new Date().getDay(),
+      date: new Date().getDate(),
+      month: new Date().getMonth(),
+      year: new Date().getFullYear(),
+      time: new Date().toLocaleTimeString()
+    })
+  }
 
   function onChangeHandler(event) {
     if (event.target.name === 'date') {
@@ -61,6 +85,8 @@ export default function ToDoForm(props) {
 
   return(
     <div style={{ position: 'sticky', top: '5%' }}>
+      <h1 className='white-text' style={{ fontSize: '400%', marginBottom: 0 }}>{ date.time }</h1>
+      <h1 className='white-text' style={{ fontSize: '160%', marginBottom: '15%' }}>{ days[date.day] }, { date.date } { months[date.month] } { date.year }</h1>
       <Row>
         <Col>       
           <Form onSubmit={ (event) => onSubmitHandler(event) }>
