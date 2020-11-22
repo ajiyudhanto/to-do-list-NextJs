@@ -59,3 +59,30 @@ a {
   color: #eaeaea;
   text-align: center;
 }
+
+.form-input {
+  background-color: transparent !important;
+  border-width: 0ch !important;
+  border-bottom-width: 3px !important;
+  border-color: #3C8258 !important;
+  color: #eaeaea !important;
+}
+
+.form-input::placeholder {
+  color: #eaeaea !important;
+}
+
+.form-input-textarea {
+  background-color: transparent !important;
+  border-width: 3px !important;
+  border-color: #3C8258 !important;
+  color: #eaeaea !important;
+}
+
+.form-input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+.form-input-textarea::placeholder {
+  color: #eaeaea !important;
+}
