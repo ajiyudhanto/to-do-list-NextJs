@@ -39,10 +39,10 @@ const Home = () => {
         <Col>
           <Row>
             <Col xs={2} style={{ display: 'flex', justifyContent: 'center' }}>
-              <p style={{ alignSelf: 'flex-end', fontWeight: 'bolder', color: '#F3B97C', paddingRight: '25%', marginBottom: '0%' }}>STATUS</p>
+              <p style={{ alignSelf: 'flex-end', fontWeight: 'bolder', color: '#3C8258', paddingRight: '25%', marginBottom: '0%' }}>STATUS</p>
             </Col>
             <Col style={{ display: 'flex', justifyContent: 'center' }}>
-              <h1 style={{ fontWeight: 'bolder', color: '#F3B97C', paddingRight: '10%' }}>TODO LIST</h1>
+              <h1 style={{ fontWeight: 'bolder', color: '#eaeaea', paddingRight: '10%' }}>TODO LIST</h1>
             </Col>
           </Row>
           <VerticalTimeline layout={ '1-column-left' }>

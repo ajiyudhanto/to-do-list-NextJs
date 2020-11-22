@@ -45,6 +45,7 @@ export default function ToDoForm(props) {
     } else {
       const result = await addToDo({ variables: toDo })
       refetch()
+      clearForm()
     }
   }
 
@@ -63,7 +64,7 @@ export default function ToDoForm(props) {
       <Row>
         <Col>       
           <Form onSubmit={ (event) => onSubmitHandler(event) }>
-            <h1 style={{ fontWeight: 'bolder', color: '#F3B97C', textAlign: 'center' }}>ADD TASK</h1>
+            <h1 style={{ fontWeight: 'bolder', color: '#eaeaea', textAlign: 'center' }}>ADD TASK</h1>
             <Form.Group>
               <Form.Control onChange={ (event) => onChangeHandler(event) } value={ toDo.title } name="title" type="text" placeholder="Name your task" />
             </Form.Group>
@@ -75,10 +76,10 @@ export default function ToDoForm(props) {
             </Form.Group>
             <Form.Row>
                 <Form.Group as={Col}>
-                    <Button type="submit" block>Add Task</Button>
+                    <Button type="submit" className='form-button' block>Add Task</Button>
                 </Form.Group>
                 <Form.Group as={Col}>
-                    <Button onClick={ () => clearForm() } block>Clear</Button>
+                    <Button onClick={ () => clearForm() } className='form-button' block>Clear</Button>
                 </Form.Group>
             </Form.Row>
           </Form>

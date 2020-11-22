@@ -44,10 +44,10 @@ export default function ToDo(props) {
         <>
             <VerticalTimelineElement
                 className="vertical-timeline-element--work"
-                contentStyle={{ background: '#404040', color: '#FEC87C' }}
-                contentArrowStyle={{ borderRight: '7px solid  #404040' }}
+                contentStyle={{ background: '#282828', color: '#eaeaea' }}
+                contentArrowStyle={{ borderRight: '7px solid  #282828' }}
                 // date={ date }
-                iconStyle={ props.toDo.status === true? { background: '#F3B97C', color: '#414141', cursor: 'pointer' } : { background: '#414141', color: '#F3B97C', cursor: 'pointer' } }
+                iconStyle={ props.toDo.status === true? { background: '#3C8258', color: '#eaeaea', cursor: 'pointer' } : { background: '#181818', color: '#eaeaea', cursor: 'pointer' } }
                 iconOnClick={ () => updateHandler() }
                 icon={ props.toDo.status === true? <MdCheck /> : <MdMoreHoriz /> }
             >

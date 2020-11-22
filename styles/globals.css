@@ -4,11 +4,11 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  background-color: #0E0E0E;
+  background-color: #181818;
 }
 
 #__next {
-  background-color: #0E0E0E;
+  background-color: #181818;
 }
 
 a {
@@ -21,7 +21,7 @@ a {
 }
 
 .vertical-timeline::before {
-  background-color: #FEC87C !important;
+  background-color: #3C8258 !important;
 }
 
 .vertical-timeline-element-icon {
@@ -31,9 +31,25 @@ a {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  box-shadow: 0 0 0 4px #FEC87C, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05) !important;
+  box-shadow: 0 0 0 4px #3C8258, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05) !important;
 }
 
 .vertical-timeline-element-content {
-  box-shadow: 0 3px 0 #FEC87C !important;
+  box-shadow: 0 3px 0 #3C8258 !important;
+}
+
+.form-button {
+  background-color: transparent !important;
+  color: #eaeaea !important;
+  font-weight: bold !important;
+  border-color: #eaeaea !important;
+  border-width: 3px !important;
+  border-radius: 20px !important;
+  transition: 2ms;
+}
+
+.form-button:hover {
+  background-color: #3C8258 !important;
+  color: #181818 !important;
+  border-color: #3C8258 !important;
 }
