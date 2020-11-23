@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Form, Button, Row, Col } from 'react-bootstrap'
 import { useMutation, gql } from '@apollo/client'
+import { ToDoFormInput } from '../interface'
 
 const ADD_TODO = gql`
     mutation AddToDo($title: String, $description: String, $status: Boolean, $date: String) {
@@ -22,7 +23,6 @@ export default function ToDoForm(props) {
   })
   const [isValidDate, setIsValidDate] = useState(true)
   const [isAllFilled, setIsAllFilled] = useState(true)
-
   const [date, setDate] = useState({
     day: new Date().getDay(),
     date: new Date().getDate(),
@@ -30,11 +30,10 @@ export default function ToDoForm(props) {
     year: new Date().getFullYear(),
     time: new Date().toLocaleTimeString()
   })
-  const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-  const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+  const months: string[] = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+  const days: string[] = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
   useEffect(() => {
-    console.log(date.month)
     setInterval(getTimeNow, 1000)
   }, [])
 
@@ -55,12 +54,12 @@ export default function ToDoForm(props) {
             setIsValidDate(false)
         } else {
             setIsValidDate(true)
-            let newToDo = JSON.parse(JSON.stringify(toDo))
+            let newToDo: ToDoFormInput = JSON.parse(JSON.stringify(toDo))
             newToDo[event.target.name] = event.target.value
             setToDo(newToDo)
         }
     } else {
-        let newToDo = JSON.parse(JSON.stringify(toDo))
+        let newToDo: ToDoFormInput = JSON.parse(JSON.stringify(toDo))
         newToDo[event.target.name] = event.target.value
         setToDo(newToDo)
     }
@@ -79,7 +78,7 @@ export default function ToDoForm(props) {
   }
 
   function clearForm() {
-    const newToDo = {
+    const newToDo: ToDoFormInput = {
         title: '',
         description: '',
         status: false,

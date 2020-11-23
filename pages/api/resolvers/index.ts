@@ -1,5 +1,6 @@
 import axios from 'axios'
 import Redis from 'ioredis'
+import { ToDo, ToDoFormInput } from '../../../interface'
 
 const redis = new Redis()
 
@@ -7,7 +8,7 @@ export const resolvers = {
     Query: {
         toDos: async () => {
             try {
-                const toDosCache = await redis.get('toDos')
+                const toDosCache: string | null = await redis.get('toDos')
                 if (toDosCache !== null) {
                     return JSON.parse(toDosCache)
                 } else {
@@ -25,11 +26,11 @@ export const resolvers = {
 
         toDoById: async (_, args) => {
             try {
-                const toDosCache = await redis.get('toDos')
+                const toDosCache: string | null = await redis.get('toDos')
                 if (toDosCache !== null) {
-                    const toDos = JSON.parse(toDosCache)
-                    const id = Number(args.id)
-                    const data = toDos.find(e => e.id === id)
+                    const toDos: ToDo[] = JSON.parse(toDosCache)
+                    const id: number = Number(args.id)
+                    const data: ToDo = toDos.find(e => e.id === id)
                     return data
                 } else {
                     const { data } = await axios({
@@ -48,7 +49,7 @@ export const resolvers = {
         createToDo: async (_, args) => {
             try {
                 const { title, description, status, date } = args
-                const payload = { title, description, status, date }
+                const payload: ToDoFormInput = { title, description, status, date }
                 const { data } = await axios({
                     method: 'post',
                     url: 'http://localhost:3000/todos',
@@ -64,7 +65,7 @@ export const resolvers = {
         updateToDo: async (_, args) => {
             try {
                 const { id, title, description, status, date } = args
-                const payload = { title, description, status, date }
+                const payload: ToDoFormInput = { title, description, status, date }
                 const { data } = await axios({
                     method: 'put',
                     url: 'http://localhost:3000/todos/' + id,

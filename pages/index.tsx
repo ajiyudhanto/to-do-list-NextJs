@@ -24,7 +24,7 @@ const Home = () => {
 
   if (loading) return <p>loading...</p>
   if (error) return <p>{ JSON.stringify(error) }</p>
-
+  
   return (
     <>
       <Row className={styles.container}>

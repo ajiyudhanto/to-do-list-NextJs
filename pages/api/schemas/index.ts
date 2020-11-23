@@ -20,7 +20,7 @@ export const typeDefs = gql`
 
     type Mutation {
         createToDo(title: String, description: String, status: Boolean, date: String): ToDo
-        updateToDo(id: Int, title: String, description: String, status: Boolean, date: String): Status
-        deleteToDo(id: Int): Status
+        updateToDo(id: String, title: String, description: String, status: Boolean, date: String): Status
+        deleteToDo(id: String): Status
     }
 `
