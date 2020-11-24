@@ -3,6 +3,7 @@ import { useMutation, gql } from '@apollo/client'
 import { VerticalTimelineElement } from 'react-vertical-timeline-component'
 import { MdCheck, MdMoreHoriz, MdClose } from "react-icons/md";
 import { ToDoFromQuery } from '../interface'
+import { toast } from 'react-toastify'
 
 const UPDATE_TODO = gql`
     mutation UpdateToDo($id: String, $title: String, $description: String, $status: Boolean, $date: String) {
@@ -31,6 +32,11 @@ export default function ToDo(props) {
         delete newToDo.__typename
         const result = await updateToDo({ variables: newToDo })
         props.refetch()
+        if (newToDo.status) {
+            toast.dark("congratulation for completing this task!")
+        } else {
+            toast.dark("oops.. did you not completed this task yet?")
+        }
     }
 
     async function deleteHandler() {

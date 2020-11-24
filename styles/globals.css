@@ -86,3 +86,16 @@ a {
 .form-input-textarea::placeholder {
   color: #eaeaea !important;
 }
+
+.Toastify__toast-container {
+  width: 27% !important;
+}
+
+.Toastify__toast--dark {
+  color: #eaeaea !important;
+  background-color: #181818 !important;
+}
+
+.Toastify__progress-bar {
+  background-color: #3C8258 !important;
+}

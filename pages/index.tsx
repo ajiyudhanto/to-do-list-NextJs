@@ -6,6 +6,8 @@ import { useQuery, gql } from '@apollo/client'
 import ToDo from '../components/ToDo'
 import { VerticalTimeline } from 'react-vertical-timeline-component'
 import 'react-vertical-timeline-component/style.min.css'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 const GET_TODOS = gql`
     query getToDos {
@@ -49,6 +51,18 @@ const Home = () => {
           </VerticalTimeline>
         </Col>
       </Row>
+      <ToastContainer 
+        position="bottom-right"
+        limit={3}
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </>
   )
 }

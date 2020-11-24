@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Form, Button, Row, Col } from 'react-bootstrap'
 import { useMutation, gql } from '@apollo/client'
 import { ToDoFormInput } from '../interface'
+import { toast } from 'react-toastify'
 
 const ADD_TODO = gql`
     mutation AddToDo($title: String, $description: String, $status: Boolean, $date: String) {
@@ -73,6 +74,7 @@ export default function ToDoForm(props) {
       setIsAllFilled(true)
       const result = await addToDo({ variables: toDo })
       refetch()
+      toast.dark("success adding task")
       clearForm()
     }
   }

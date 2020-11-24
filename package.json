@@ -20,6 +20,7 @@
     "react-bootstrap": "^1.4.0",
     "react-dom": "17.0.1",
     "react-icons": "^3.11.0",
+    "react-toastify": "^6.1.0",
     "react-vertical-timeline-component": "^3.3.1"
   },
   "devDependencies": {
